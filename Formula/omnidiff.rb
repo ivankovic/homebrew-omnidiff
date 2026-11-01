@@ -22,17 +22,17 @@
 class Omnidiff < Formula
   desc "Fast, robust, accurate content-aware diffing"
   homepage "https://github.com/ivankovic/omnidiff"
-  version "0.2.1"
+  version "0.3.0"
   license "AGPL-3.0-only"
 
   on_macos do
     on_arm do
-      url "https://github.com/ivankovic/omnidiff/releases/download/v0.2.1/omnidiff-aarch64-apple-darwin.tar.gz"
-      sha256 "7516cc1d668ad454ccac2dc5bbd50b5742e248d7bc52e645f4d5dede9f833ddc"
+      url "https://github.com/ivankovic/omnidiff/releases/download/v0.3.0/omnidiff-aarch64-apple-darwin.tar.gz"
+      sha256 "6b6d0367b9ca4f1485f2b57da40d42d7190def1ca5bf56b2fef01f12a388bc20"
     end
     on_intel do
-      url "https://github.com/ivankovic/omnidiff/releases/download/v0.2.1/omnidiff-x86_64-apple-darwin.tar.gz"
-      sha256 "7c404449dfc0428716c0cb309dba0b789754ca5d86c016baf315894f24de10a9"
+      url "https://github.com/ivankovic/omnidiff/releases/download/v0.3.0/omnidiff-x86_64-apple-darwin.tar.gz"
+      sha256 "c45e88a96089139e2c43b2a1d6a70c9ee9680e0c720a94eddd2327f57159fc5a"
     end
   end
 
@@ -40,12 +40,12 @@ class Omnidiff < Formula
   # glibc, or none.
   on_linux do
     on_arm do
-      url "https://github.com/ivankovic/omnidiff/releases/download/v0.2.1/omnidiff-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "659ec544dd533c0f728a56e8465b969a8dc46c8851708ac70775cdbea550a113"
+      url "https://github.com/ivankovic/omnidiff/releases/download/v0.3.0/omnidiff-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "17c9c9b986d5b495a50ed0e088f98db7a817648ea0582140f8f76c68a73aba51"
     end
     on_intel do
-      url "https://github.com/ivankovic/omnidiff/releases/download/v0.2.1/omnidiff-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "5fdd5393663b158f7398cb2fd931c1526d55cab3c71ee3c16b3d7deca56596ac"
+      url "https://github.com/ivankovic/omnidiff/releases/download/v0.3.0/omnidiff-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "c85ec5c2f931a52c77aba34211b3c5de377112e8098bdf02a016503856ada1ae"
     end
   end
 
