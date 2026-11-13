@@ -16,23 +16,24 @@
 
 # The Homebrew formula for the tap at github.com/ivankovic/homebrew-omnidiff, as a template:
 # scripts/render_homebrew_formula.py fills the version and the checksums from a release's
-# SHA256SUMS.txt, and release.yml pushes the result to the tap. The installed binary is the same
+# SHA256SUMS.txt, and release.yml pushes the result to the tap. `https://github.com/ivankovic/omnidiff/releases/download/v0.5.0` is the release's
+# download URL, or a local directory when scripts/brew_e2e.py installs a build that is not released. The installed binary is the same
 # attested release asset every other route ships, so `brew install` takes seconds instead of the
 # ten-minute grammar-and-LTO compile a build-from-source formula would run on every machine.
 class Omnidiff < Formula
   desc "Fast, robust, accurate content-aware diffing"
   homepage "https://github.com/ivankovic/omnidiff"
-  version "0.4.0"
+  version "0.5.0"
   license "AGPL-3.0-only"
 
   on_macos do
     on_arm do
-      url "https://github.com/ivankovic/omnidiff/releases/download/v0.4.0/omnidiff-aarch64-apple-darwin.tar.gz"
-      sha256 "ac5d75ad752a4738f24ffd72c7e93f4bb4c9caf6ee89cc79b8b09ad1d9fca42a"
+      url "https://github.com/ivankovic/omnidiff/releases/download/v0.5.0/omnidiff-aarch64-apple-darwin.tar.gz"
+      sha256 "6e5a9e933d1f56f3112d1938af5418fe68a55eb528669577b43470800d9271ad"
     end
     on_intel do
-      url "https://github.com/ivankovic/omnidiff/releases/download/v0.4.0/omnidiff-x86_64-apple-darwin.tar.gz"
-      sha256 "1e605cb70660fc67a3fff9ac2fc42c1b73687012d1d1663f58bf25c0f2240973"
+      url "https://github.com/ivankovic/omnidiff/releases/download/v0.5.0/omnidiff-x86_64-apple-darwin.tar.gz"
+      sha256 "85fdbd2b5cfb970688508a018359e59f328c7a2d0712a751250c04bae2ed36a8"
     end
   end
 
@@ -40,12 +41,12 @@ class Omnidiff < Formula
   # glibc, or none.
   on_linux do
     on_arm do
-      url "https://github.com/ivankovic/omnidiff/releases/download/v0.4.0/omnidiff-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "e4a6d61d7655d56eeb8c004290840b5e3b11fb9f39e546fd77aaa46b91e59d35"
+      url "https://github.com/ivankovic/omnidiff/releases/download/v0.5.0/omnidiff-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "0bdacec5e160ad75d7aa6ab88d7fe3c00e4c8bafa72d30574c79458e9dfbcb63"
     end
     on_intel do
-      url "https://github.com/ivankovic/omnidiff/releases/download/v0.4.0/omnidiff-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "3b4749205e3743abfc0fea9edb87d59f2fbd5cba530d8c49abf44d468e0dcb18"
+      url "https://github.com/ivankovic/omnidiff/releases/download/v0.5.0/omnidiff-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "e16863edf377f9f5c9c790448eb0ea5940506b947f9b1d4675b6d6fa253579aa"
     end
   end
 
@@ -60,7 +61,7 @@ class Omnidiff < Formula
     assert_match version.to_s, shell_output("#{bin}/omnidiff --version")
     (testpath/"before.py").write "def f(x):\n    return x + 1\n"
     (testpath/"after.py").write "def f(x):\n    return x + 2\n"
-    output = shell_output("#{bin}/omnidiff --headless before.py after.py")
+    output = shell_output("#{bin}/omnidiff --headless --color never before.py after.py")
     assert_match "x + 2", output
   end
 end
